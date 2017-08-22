@@ -30,7 +30,7 @@ public class AuthorController {
             return mv;
         }
         System.out.println("未登录");
-        mv2.setViewName("wlogin");
+        mv2.setViewName("saveAuthor");
         return mv;
     }
     @RequestMapping("yzAuthorLogin")
@@ -44,13 +44,21 @@ public class AuthorController {
         return "0";
     }
     @RequestMapping("addAuthor")
-    public String addAuthor(Author author){
+    public String addAuthor(Author author,HttpSession session,String authorNname){
         System.out.println("添加作者");
         authorService.addAuthor(author);
+        Author au = authorService.findByAuthorName(authorNname);
+        session.setAttribute("au",au);
         return "author";
     }
+    @RequestMapping("query")
+    public String query(HttpSession session,String authorNname){
+        List<Author> list = authorService.query(authorNname);
+        session.setAttribute("list",list);
+        return "writer";
+    }
     @RequestMapping("findByAuthorName")
-    public String findByAuthorName(String name, Model model, HttpSession session){
+    public String findByAuthorName(String name, Model model){
         Author au = authorService.findByAuthorName(name);
         List<Book> list = authorService.selectByAuthorName(name);
         for (Book o : list) {

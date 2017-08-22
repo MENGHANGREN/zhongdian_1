@@ -22,6 +22,11 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
+    public List<Author> query(String authorNname) {
+        return authorMapper.query(authorNname);
+    }
+
+    @Override
     public Author findByAuthorName(String name) {
         return authorMapper.findByAuthorName(name);
     }

@@ -24,12 +24,6 @@ public class StringUtil {
 		int d2 = n % 16;
 		return hexDigits[d1] + hexDigits[d2];
 	}
-
-	/**
-	 * ת���ֽ�����Ϊ16�����ִ�
-	 * @param b �ֽ�����
-	 * @return 16�����ִ�
-	 */
 	public static String byteArrayToHexString(byte[] b) {
 		StringBuffer resultSb = new StringBuffer();
 		for (int i = 0; i < b.length; i++) {

@@ -1,7 +1,6 @@
 package com.three.zhongdian.user.controller;
 
 import com.three.zhongdian.user.entity.User;
-import com.three.zhongdian.user.mapper.UserMapper;
 import com.three.zhongdian.user.service.UserService;
 import com.three.zhongdian.util.PhoneUtil;
 import com.three.zhongdian.util.Upload;
@@ -20,7 +19,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -131,7 +129,7 @@ public class UserController {
      userService.saveUser(user);
         System.out.println("添加成功");
         model.addAttribute("user",user);
-     return "success";
+     return "=";
     }
     /*
     修改用户信息的方法

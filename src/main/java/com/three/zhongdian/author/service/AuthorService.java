@@ -9,6 +9,7 @@ import java.util.List;
  */
 public interface AuthorService {
     void addAuthor(Author author);
+    List<Author> query(String authorNname);
     /*
     根据作者查询
      */

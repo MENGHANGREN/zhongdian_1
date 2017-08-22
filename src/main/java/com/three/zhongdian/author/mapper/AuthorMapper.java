@@ -6,9 +6,6 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,6 +17,8 @@ import java.util.List;
 public interface AuthorMapper {
     @Insert("insert into author(authorNname,newPassword,repeatPassword,email,QQ,realName,sex,cardtype,cardId,tel_pre,province,address) values (#{authorNname},#{newPassword},#{repeatPassword},#{email},#{QQ},#{realName},#{sex},#{cardtype},#{cardId},#{tel_pre},#{province},#{address})")
     void addAuthor(Author author);
+    @Select("select * from author where authorNname=#{authorNname}")
+    List<Author> query(String authorNname);
     /*
         根据作者查询
          */

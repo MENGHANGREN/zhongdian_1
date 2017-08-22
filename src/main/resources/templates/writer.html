@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
-<head>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <!-- 360安全游览器使用webkit极速核 -->
     <meta name="renderer" content="webkit"/>
@@ -32,14 +33,14 @@
                     </li>
                     <li class="line"></li>
                     <li id="headPhotoBox" class="headPhoto">
-                        <p><em><img src="https://img1.write.qq.com/writer/p1/contentv2/photo_default.png" width="36" height="36"  alt=""/></em><a class="userName" href="javascript:">aaaar</a></p>
+                        <p><em><img src="https://img1.write.qq.com/writer/p1/contentv2/photo_default.png" width="36" height="36"  alt=""/></em><a class="userName" href="javascript:" ></a></p>
                         <dl class="userBox">
                             <cite class="icon whiteSj"></cite>
                             <dd class="userInfo hidden">
                                 <!-- 增加身份标识"ico-level",silver为白金作家，dashen为大神作家 -->
-                                <p class="name" title="aaaar">aaaar
-
-                                </p>
+                                <div>
+                                    <b style="text-align: center;margin-left: 100px" th:text="${session.au.authorNname}"></b>
+                                </div>
                                 <p class="level">
 
                                     <span><em style="width:70%">0/0</em></span></p>
@@ -96,23 +97,23 @@
                         <a href="/index.html"><span class="home"></span>专区首页</a>
                     </li>
                     <li >
-                        <a href="/booknovels/novels.html"><span class="works"></span>作品管理</a>
+                        <a href=""><span class="works"></span>作品管理</a>
                     </li>
-                    <li ><a href="/booknovelsvip/takeindex.html"><span class="data-icon"></span>数据统计</a>
+                    <li ><a href=""><span class="data-icon"></span>数据统计</a>
                         <!-- start 工具栏提示 -->
                     </li>
                     <!---->
                     <li >
-                        <a href="/income/index.html"><span class="income"></span>稿酬收入</a>
+                        <a href=""><span class="income"></span>稿酬收入</a>
                     </li>
                     <li >
-                        <a href="/labor.html"><span class="labour"></span>劳务收入</a>
+                        <a href=""><span class="labour"></span>劳务收入</a>
                     </li>
                     <li >
-                        <a href="/authors/authorconsultlist.html"><span class="counsel"></span>作家咨询</a>
+                        <a href=""><span class="counsel"></span>作家咨询</a>
                     </li>
                     <li >
-                        <a href="/integral_exchange/exchange.html"><span class="exchange"></span>积分兑换</a>
+                        <a href=""><span class="exchange"></span>积分兑换</a>
                     </li>
                 </ul>
             </div>
@@ -121,7 +122,7 @@
             <div class="sideBar min-bar" id="min-bar">
                 <ul>
                     <li >
-                        <a class="min-link" href="/booknovels/novels.html"><span class="icon works"></span></a>
+                        <a class="min-link" href=""><span class="icon works"></span></a>
                         <a class="expand" href="/booknovels/novels.html">作品管理</a>
                     </li>
 
@@ -171,9 +172,11 @@
                 <span></span> <img src="https://img1.write.qq.com/writer/p1/contentv2/photo_default.png" width="86" height="86">
             </div>
             <div class="authorInfoBox fl">
-                <h3>aaaar            <!-- 增加身份标识"ico-level",silver为白金作家，dashen为大神作家 -->
+                <h3 th:text="${session.au.authorNname}">
+                    <!-- 增加身份标识"ico-level",silver为白金作家，dashen为大神作家 -->
+
                 </h3>
-                <p>今天是2017年8月11日，周五，本月您已更新<i class="Num">0</i>天，共计更新<i class="Num curmonthcount">0</i>字</p>
+                <p>今天是2017年8月22日，周二，本月您已更新<i class="Num">0</i>天，共计更新<i class="Num curmonthcount">0</i>字</p>
             </div>
             <!-- 码字日历按钮 -->
             <div class="btn-calendar"><a href="javascript:;"><i class="ico-calendar"></i>我的码字日历</a></div>

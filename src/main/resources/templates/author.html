@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="robots" content="all">
@@ -44,9 +44,19 @@
             <!-- 右侧搜索、登录信息 -->
             <div class="hd-right">
 
-                <div class="login-box">
+                <div class="login-box" style="margin-top: 15px">
                     <!-- 未登录 -->
-                    <div class="nologin" style="display:none"><a href="/contentv2/public/login.html">登录</a><em>|</em><a href="/contentv2/public/login.html">注册</a></div>
+                    <!--<div class="nologin" style="display:none"><a href="wlogin.html">登录</a><em>|</em><a href="saveAuthor.html">注册</a></div>-->
+                    <div class="box-center cf">
+                    <div class="login-box fr">
+
+                        <div class="sign-out" id="meilogin" th:if="${session.loginUser}==null">
+                            <a id="login-btn" class="black" href="javascript:" data-eid="qd_A06" onclick="document.getElementById('tologin').style.display='block'">登录</a>
+                            <em>|</em>
+                            <a id="reg-btn" href="../zhuce" target="_blank" data-eid="qd_A07">注册</a></div>
+                    </div>
+                    <div class="login-box fr"><div class="sign-in"><span>你好，</span><a class="black" id="user-name"  target="_blank" data-eid="qd_A08" th:text="${session.au.authorNname}">书友20170802203148953</a><em>|</em><a id="exit-btn"  data-eid="qd_A10" onclick="cleanSession()" href="" style="cursor:hand">退出</a></div></div>
+                    </div>
                     <!-- 已登录 -->
                     <div class="yeslogin" style="display:none">
                         <p class="author-pic pic30"><span class="circle"><img src="https://img1.write.qq.com/writer/p1/authorcollege/author_mask.png" /></span><img class="portrait" src="" /></p>
@@ -294,15 +304,25 @@
             <!-- 我的专区 -->
             <div class="com-section author-center">
                 <h2 class="sec-ttl">我的专区</h2>
+                <div>
+                    <div class="author-box clearfix">
+                        <div class="link-manage">
+                            <a class="blue-btn" href="../query" target="_blank">进入我的专区</a>
+                        </div>
+                        <div>
+                            <b style="text-align: center;margin-left: 100px" th:text="${session.au.authorNname}"></b>
+                        </div>
+
+                </div>
 
                 <!-- 0921未登录显示begin -->
-                <div class="nologin-box" style="display: none">
+                <!--<div class="nologin-box" style="display: none">
                     <div class="author-box clearfix">
 
-                        <!-- 头像 -->
+                        &lt;!&ndash; 头像 &ndash;&gt;
                         <div class="pic pic48"><span class="circle"><img src="https://img1.write.qq.com/writer/p1/authorcollege/author_mask.png" /></span><img src="https://img1.write.qq.com/writer/p1/authorcollege/avatar.png" /></div>
 
-                        <!-- 信息 -->
+                        &lt;!&ndash; 信息 &ndash;&gt;
                         <div class="right">
                             <p class="info"><span class="name">Hi，你好</span></p>
                             <p class="jifen">欢迎来到作家专区</p>
@@ -313,28 +333,28 @@
                         <i class="line"></i>
                         <a class="register" href="/contentv2/public/login.html">注册</a>
                     </div>
-                </div>
+                </div>-->
                 <!-- 0921未登录显示end -->
 
                 <!-- 0921已登录显示begin -->
-                <div class="yeslogin-box" style="display: none">
+               <!-- <div class="yeslogin-box" style="display: none">
                     <div class="author-box clearfix">
 
-                        <!-- 头像 -->
+                        &lt;!&ndash; 头像 &ndash;&gt;
                         <div class="pic pic48"><a href="/college/usercenter/index.html"><span class="circle"><img src="https://img1.write.qq.com/writer/p1/authorcollege/author_mask.png" /></span><img class="portrait" src="" /></a></div>
 
-                        <!-- 信息 -->
+                        &lt;!&ndash; 信息 &ndash;&gt;
                         <div class="right">
                             <p class="info"><span class="name authorname"></span><span class="honor authorhonor">白金</span><span class="level authorlevel"></span></p>
                             <p class="jifen authorscore"></p>
                         </div>
                     </div>
 
-                    <!-- 链接 -->
+                    &lt;!&ndash; 链接 &ndash;&gt;
                     <div class="link-manage">
                         <a class="blue-btn" href="/index.html" target="_blank">进入我的专区</a>
                     </div>
-                </div>
+                </div>-->
                 <!-- 9021已登录显示end -->
             </div>
 
